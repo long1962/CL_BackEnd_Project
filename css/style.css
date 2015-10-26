@@ -1,0 +1,130 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+
+#container {
+   min-height:100%;
+   position:relative;
+}
+
+#header {
+	background: #ff8400; 
+	border-bottom: 5px solid #f16702;
+	height:60px;   /* Height of the header */
+}
+
+#header h1{
+	text-align: left;
+	padding-top: 1%;
+	padding-left: 5%;
+	font-size: 24px;
+	color: #fff;
+}
+
+.main {
+  	position: relative;
+  	margin-top: 30px;
+	text-align: center;
+}
+
+.main a {
+	background-color: #8CC63E;
+	border-bottom: 2px solid #5AA53C;
+	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+}
+
+.btn-main {
+	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	letter-spacing: 1.3px;
+	padding: 16px 40px;
+	text-decoration: none;
+}
+
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+
+#body img {
+	display: block;
+	margin-top: 65px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#login h2 {
+    font-size: 24px; 
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.6;
+    font-weight: normal; 
+    color: #000;   
+}
+
+form {
+	width: 375px;
+	margin: 34px auto;
+}
+
+form tr {
+    border: 1px solid #CCC;
+    background: #f4f3f2;
+}
+
+form table {
+	width: 375px;
+	margin-bottom: 16px;
+}
+
+form th {
+    width: 85px;
+    border-right: 1px solid #CCC;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+form td {
+    padding: 15px 15px;
+}
+
+form td select,
+form td input {
+    width: 100%;
+}
+
+form input[type="submit"] {
+    width: 375px;
+    text-align: center;
+    border: 1px solid #5AA53C;
+    background: #8CC63E;
+    color: #fff;
+    border-radius: 2px;    
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 14px;
+}
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#015FC3;
+   border-top: 5px solid #014188;
+}
+
+#footer p{
+	color: #fff;
+	padding-left: 5%;
+}
