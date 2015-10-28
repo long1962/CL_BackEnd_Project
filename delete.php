@@ -1,3 +1,9 @@
+<!-- -----------------------------------------------------------------------------
+Explanation of the code:
+  Deleting Data:  
+    
+------------------------------------------------------------------------------- -->
+
 <?php
 	session_start(); //starts the session
 	if($_SESSION['user']){ //checks if user is logged in

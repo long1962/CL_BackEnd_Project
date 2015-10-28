@@ -1,3 +1,10 @@
+<!-- ---------------------------------------------------------------
+Explanation of the code:
+    Adding Data:
+      foreach() - gets the value of the checkbox.
+    
+------------------------------------------------------------------ -->
+
 <?php
     session_start();
     if($_SESSION['user']){

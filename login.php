@@ -26,9 +26,10 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" value="Login">
+            <input type="submit" value="Login">
         </form>
       </div>
+      
 <?php include('inc/footer.php'); ?>
   
   

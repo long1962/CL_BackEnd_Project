@@ -1,3 +1,12 @@
+<!-- -----------------------------------------------------------------------------
+Explanation of the code:
+  Editing Data:  
+    !empty() - a method that checks if the value is not empty. 
+    $_GET[''] - Used to get the value from the parameter. 
+    $id_exists - the variable that checks whether the given id exists.
+    $_SESSION['id'] - place the value of id into session to use it on another file.  
+------------------------------------------------------------------------------- -->
+
 <html>
   <head>
     <title>My first PHP website</title>

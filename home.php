@@ -1,3 +1,12 @@
+<!-- ------------------------------------------------------------------------
+Explanation to the code:
+  session_start() - Basically starts the session. Required for $_SESSION[''].
+  header() - redirects the user.
+  
+  Displaying Data:
+    Displays the data coming from the while loop. 
+------------------------------------------------------------------------- -->
+
 <html>
   <head>
     <title>My first PHP website</title>
@@ -23,19 +32,16 @@
     <h2 align="center">My list</h2>
     <table border="1px" width="100%">
     
-    <?php  
-    include('inc/tableTitles.php');
-    ?>
-
-<!--      <tr>
+      <tr>
         <th>Id</th>
-        <th>Details</th>
-        <th>Post Time</th>
-        <th>Edit Time</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>Public Post</th>
-      </tr> -->
+        <th>Requirement</th>
+        <th>Frequency</th>
+        <th>Due Date</th>
+        <th>Assigned To</th>
+        <th>Completed Date</th>
+        <th>Remarks</th>
+      </tr>
+
       <?php
         mysql_connect("localhost", "root","") or die(mysql_error()); //Connect to server
         mysql_select_db("first_db") or die("Cannot connect to database"); //connect to database
@@ -54,19 +60,17 @@
         }
       ?>
     </table>
+    
     <script>
-      function myFunction(id)
-      {
+      function myFunction(id) {
       var r=confirm("Are you sure you want to delete this record?");
-      if (r==true)
-        {
+        if (r==true) {
           window.location.assign("delete.php?id=" + id);
         }
       }
     </script>
 
-    <?php  
-      include('inc/footer.php');
-    ?>
+    <?php include('inc/footer.php'); ?>
+    
   </body>
 </html>
