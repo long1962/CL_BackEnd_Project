@@ -39,7 +39,6 @@ Explanation of the code:
         <th>Assigned To</th>
         <th>Completed Date</th>
         <th>Remarks</th>
-        <th>Public Post</th>
       </tr>
       
       <?php
@@ -63,7 +62,6 @@ Explanation of the code:
                           Print '<td align="center">'. $row['assigned_to'] . "</td>";
                           Print '<td align="center">'. $row['completed_on'] . "</td>";
                           Print '<td align="center">'. $row['remarks'] . "</td>";
-                          Print '<td align="center">'. $row['public'] . "</td>";
                         Print "</tr>";
                       }
                   } else {
@@ -78,8 +76,8 @@ Explanation of the code:
           if($id_exists) {
               Print'
               <form action="edit.php" method="POST">
-                    Enter new EHS requirement: <input type="text" name="requirement"/><br/>
-                    public post? <input type="checkbox" name="public[]" value="yes"/><br/>
+                    Enter Completion Date: <input type="date" name="completed_on"/><br/>
+                    Enter Remarks: <input type="varchar(250)" name="remarks"/><br/>
                     <input type="submit" value="Update List"/>
               </form>';
           } else {
@@ -94,22 +92,15 @@ Explanation of the code:
       if($_SERVER['REQUEST_METHOD'] == "POST") {
             mysql_connect("localhost", "root","") or die (mysql_error()); //Connect to server
             mysql_select_db("first_db") or die ("Cannot connect to database"); //Connect to database
-            $requirement = mysql_real_escape_string($_POST['requirement']);
-            $public = "no";
+           
+            $completed_on = mysql_real_escape_string($_POST['completed_on']);
+            $remarks = mysql_real_escape_string($_POST['remarks']);
             $id = $_SESSION['id'];
-            $time = strftime("%X");//time
-            $date = strftime("%B %d, %Y");//date
-              
-              foreach($_POST['public'] as $compliance_table) {
-                if($compliance_table != null) {
-                    $public = "yes";
-                }
-              }
 
-        mysql_query("UPDATE compliance_table SET 
-                    requirement='$requirement', 
-                    public='$public' 
-                    WHERE requirement_id='$id'") ;
-        header("location: home.php");
+            mysql_query("UPDATE compliance_table SET 
+                        completed_on='$completed_on',
+                        remarks = '$remarks'
+                        WHERE requirement_id='$id'");
+            header("location: home.php");
       }
 ?>
