@@ -24,12 +24,14 @@ Explanation to the code:
     <h2>Home Page</h2>
     <p>Hello <?php Print "$user"?>!</p> <!--Displays user's name-->
     <a href="logout.php">Click here to logout</a><br/><br/>
+    
     <form action="add.php" method="POST">
-      Add more to list: <input type="text" name="details"/><br/>
+      Add more to list: <input type="text" name="requirement"/><br/>
       public post? <input type="checkbox" name="public[]" value="yes"/><br/>
       <input type="submit" value="Add to list"/>
     </form>
-    <h2 align="center">My list</h2>
+    
+    <h2 align="center">EHS Compliance List</h2>
     <table border="1px" width="100%">
     
       <tr>
@@ -40,21 +42,27 @@ Explanation to the code:
         <th>Assigned To</th>
         <th>Completed Date</th>
         <th>Remarks</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Public Post</th>
       </tr>
 
       <?php
         mysql_connect("localhost", "root","") or die(mysql_error()); //Connect to server
         mysql_select_db("first_db") or die("Cannot connect to database"); //connect to database
-        $query = mysql_query("Select * from list"); // SQL Query
+        $query = mysql_query("SELECT * FROM compliance_table"); // SQL Query
         while($row = mysql_fetch_array($query))
         {
           Print "<tr>";
-            Print '<td align="center">'. $row['id'] . "</td>";
-            Print '<td align="center">'. $row['details'] . "</td>";
-            Print '<td align="center">'. $row['date_posted']. " - ". $row['time_posted']."</td>";
-            Print '<td align="center">'. $row['date_edited']. " - ". $row['time_edited']. "</td>";
-            Print '<td align="center"><a href="edit.php?id='. $row['id'] .'">edit</a> </td>';
-            Print '<td align="center"><a href="#" onclick="myFunction('.$row['id'].')">delete</a> </td>';
+            Print '<td align="center">'. $row['requirement_id'] . "</td>";
+            Print '<td align="center">'. $row['requirement'] . "</td>";
+            Print '<td align="center">'. $row['frequency'] . "</td>";
+            Print '<td align="center">'. $row['due_date'] . "</td>";
+            Print '<td align="center">'. $row['assigned_to'] . "</td>";
+            Print '<td align="center">'. $row['completed_on'] . "</td>";
+            Print '<td align="center">'. $row['remarks'] . "</td>";
+            Print '<td align="center"><a href="edit.php?id='. $row['requirement_id'] .'">edit</a> </td>';
+            Print '<td align="center"><a href="#" onclick="myFunction('.$row['requirement_id'].')">delete</a> </td>';
             Print '<td align="center">'. $row['public']. "</td>";
           Print "</tr>";
         }
@@ -65,7 +73,7 @@ Explanation to the code:
       function myFunction(id) {
       var r=confirm("Are you sure you want to delete this record?");
         if (r==true) {
-          window.location.assign("delete.php?id=" + id);
+          window.location.assign("delete.php?requirement_id=" + id);
         }
       }
     </script>
